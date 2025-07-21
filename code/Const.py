@@ -109,7 +109,7 @@ PLAYER_KEY_RIGHT = {'Player': pygame.K_RIGHT}
 PLAYER_KEY_SHOOT = {'Player': pygame.K_RCTRL}
 
 # S
-SPAWN_TIME = 500  # Spawn times of enemies
+SPAWN_TIME = 1000  # Spawn times of enemies
 
 # T
 TIMEOUT_STEP = 100  # 100ms
