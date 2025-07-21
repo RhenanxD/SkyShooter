@@ -34,8 +34,10 @@ class Level:
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
-                if isinstance(ent, (Player, Enemy)):
-                    self.entity_list.append(ent.shoot())
+                if isinstance(ent, (Player, Enemy)):  # Verify if shot exist or not
+                    shoot = ent.shoot()
+                    if shoot is not None:  # If shot doesn't exist don't return as parameter
+                        self.entity_list.append(shoot)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
