@@ -13,7 +13,7 @@ class Menu:
         self.surf = pygame.image.load('./asset/MenuBg.png').convert_alpha()  # Background for Menu, Optimized
         self.rect = self.surf.get_rect(left=0, top=0)  # Left and top = 0, just to be sure Default
 
-    def run(self, ):
+    def run(self):
         menu_option = 0
         pygame.mixer_music.load('./asset/MenuSong.mp3')  # Song for Menu
         pygame.mixer_music.play(-1)  # Song always playing
