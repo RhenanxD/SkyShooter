@@ -4,7 +4,7 @@ import pygame.image
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDTH, COLOR_CYAN, MENU_OPTION, COLOR_WHITE, COLOR_BLUE
+from code.Const import WIN_WIDTH, C_CYAN, MENU_OPTION, C_WHITE, C_BLUE
 
 
 class Menu:
@@ -19,15 +19,15 @@ class Menu:
         pygame.mixer_music.play(-1)  # Song always playing
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, "Sky", COLOR_CYAN, ((WIN_WIDTH / 2), 50))  # Sky Word
-            self.menu_text(50, "Shooter", COLOR_CYAN, ((WIN_WIDTH / 2), 100))  # Shooter Word
+            self.menu_text(50, "Sky", C_CYAN, ((WIN_WIDTH / 2), 50))  # Sky Word
+            self.menu_text(50, "Shooter", C_CYAN, ((WIN_WIDTH / 2), 100))  # Shooter Word
 
             # for i in range options in menu customization
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(30, MENU_OPTION[i], COLOR_BLUE, ((WIN_WIDTH / 2), 200 + 25 * i))
+                    self.menu_text(30, MENU_OPTION[i], C_BLUE, ((WIN_WIDTH / 2), 200 + 25 * i))
                 else:
-                    self.menu_text(25, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
+                    self.menu_text(25, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 25 * i))
             pygame.display.flip()
 
             # Check for all events

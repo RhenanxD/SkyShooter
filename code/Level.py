@@ -6,7 +6,7 @@ import pygame.display
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME
+from code.Const import C_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME, C_RED
 from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
@@ -38,6 +38,8 @@ class Level:
                     shoot = ent.shoot()
                     if shoot is not None:  # If shot doesn't exist don't return as parameter
                         self.entity_list.append(shoot)
+                if ent.name == 'Player':
+                    self.level_text(16, f'Player - Health: {ent.health}  |  Score: {ent.score}', C_RED, (10, 25))
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -45,11 +47,10 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1', 'Enemy2'))  # Random choice of enemy that will appear in the game
                     self.entity_list.append(EntityFactory.get_entity(choice))
-
             # Plum Clouds = Level Name
-            self.level_text(16, f'Plum Clouds - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (10, 5))
-            self.level_text(16, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
-            self.level_text(16, f'entities: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
+            self.level_text(16, f'Plum Clouds - Timeout: {self.timeout / 1000:.1f}s', C_WHITE, (10, 5))
+            self.level_text(16, f'fps: {clock.get_fps():.0f}', C_WHITE, (10, WIN_HEIGHT - 35))
+            self.level_text(16, f'entities: {len(self.entity_list)}', C_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
             EntityMediator.verify_collision(entity_list=self.entity_list)  # Verify collision
             EntityMediator.verify_health(entity_list=self.entity_list)  # Verify Health

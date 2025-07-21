@@ -3,9 +3,10 @@ import pygame
 
 # C
 # Menu Theme Color, if you want to change the color, just change the numbers inside the parameters
-COLOR_CYAN = (0, 255, 255)  # Title Menu Text
-COLOR_WHITE = (255, 255, 255)
-COLOR_BLUE = (64, 178, 245)
+C_CYAN = (0, 255, 255)  # Title Menu Text
+C_WHITE = (255, 255, 255)
+C_BLUE = (64, 178, 245)
+C_RED = (255, 0, 0)
 
 # E
 # Speed of everything
@@ -38,6 +39,36 @@ ENTITY_HEALTH = {
     'Enemy1Shot': 1,
     'Enemy2': 60,
     'Enemy2Shot': 1,
+}
+
+ENTITY_DAMAGE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Player': 1,
+    'PlayerShot': 25,
+    'Enemy1': 1,
+    'Enemy1Shot': 20,
+    'Enemy2': 1,
+    'Enemy2Shot': 15,
+}
+
+ENTITY_SCORE = {
+    'Level1Bg0': 0,
+    'Level1Bg1': 0,
+    'Level1Bg2': 0,
+    'Level1Bg3': 0,
+    'Level1Bg4': 0,
+    'Level1Bg5': 0,
+    'Player': 0,
+    'PlayerShot': 0,
+    'Enemy1': 100,
+    'Enemy1Shot': 0,
+    'Enemy2': 125,
+    'Enemy2Shot': 0,
 }
 
 ENTITY_SHOT_DELAY = {
