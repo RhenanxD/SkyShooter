@@ -9,6 +9,7 @@ from pygame.font import Font
 from code.Const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 
 
 class Level:
@@ -23,9 +24,9 @@ class Level:
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     def run(self):
-        pygame.mixer.music.load(f'./asset/{self.name}Song.mp3')
-        pygame.mixer_music.play(-1)
-        clock = pygame.time.Clock()
+        pygame.mixer.music.load(f'./asset/{self.name}Song.mp3')  # Inserting song Level 1
+        pygame.mixer_music.play(-1)  # Always playing song
+        clock = pygame.time.Clock()  # Fps
         while True:
             clock.tick(60)
             for ent in self.entity_list:
@@ -36,7 +37,7 @@ class Level:
                     pygame.quit()
                     quit()
                 if event.type == EVENT_ENEMY:
-                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    choice = random.choice(('Enemy1', 'Enemy2'))  # Random choice of enemy that will appear in the game
                     self.entity_list.append(EntityFactory.get_entity(choice))
 
             # Plum Clouds = Level Name
@@ -44,6 +45,8 @@ class Level:
             self.level_text(16, f'fps: {clock.get_fps():.0f}', COLOR_WHITE, (10, WIN_HEIGHT - 35))
             self.level_text(16, f'entities: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20))
             pygame.display.flip()
+            EntityMediator.verify_collision(entity_list=self.entity_list)  # Verify collision
+            EntityMediator.verify_health(entity_list=self.entity_list)  # Verify Health
         pass
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
