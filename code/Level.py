@@ -1,23 +1,26 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import random
+
 import pygame.display
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import COLOR_WHITE, WIN_HEIGHT
+from code.Const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
 
 
 class Level:
     def __init__(self, window, name, game_mode):
+        self.timeout = 20000  # 20 Seconds
         self.window = window
         self.name = name
         self.game_mode = game_mode  # Game mode (New game, Hardcore, No hit)
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
         self.entity_list.append(EntityFactory.get_entity('Player'))
-        self.timeout = 20000  # 20 Seconds
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
 
     def run(self):
         pygame.mixer.music.load(f'./asset/{self.name}Song.mp3')
@@ -32,6 +35,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     quit()
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1', 'Enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             # Plum Clouds = Level Name
             self.level_text(16, f'Plum Clouds - Timeout: {self.timeout / 1000:.1f}s', COLOR_WHITE, (10, 5))
