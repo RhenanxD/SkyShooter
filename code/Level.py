@@ -16,6 +16,7 @@ class Level:
         self.game_mode = game_mode  # Game mode (New game, Hardcore, No hit)
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
+        self.entity_list.append(EntityFactory.get_entity('Player'))
         self.timeout = 20000  # 20 Seconds
 
     def run(self):
