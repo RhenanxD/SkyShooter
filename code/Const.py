@@ -5,7 +5,7 @@ import pygame
 # Menu Theme Color, if you want to change the color, just change the numbers inside the parameters
 C_CYAN = (0, 255, 255)  # Title Menu Text
 C_WHITE = (255, 255, 255)
-C_BLUE = (64, 178, 245)
+C_GREEN = (0, 255, 0)
 C_RED = (255, 0, 0)
 
 # E
@@ -109,7 +109,7 @@ PLAYER_KEY_RIGHT = {'Player': pygame.K_RIGHT}
 PLAYER_KEY_SHOOT = {'Player': pygame.K_RCTRL}
 
 # S
-SPAWN_TIME = 4000  # Spawn times of enemies
+SPAWN_TIME = 2000  # Spawn times of enemies
 
 # T
 TIMEOUT_STEP = 100  # 100ms
@@ -119,3 +119,21 @@ TIMEOUT_LEVEL = 20000  # 20 seconds
 # Screen Width and Height, change automatically to Game.py
 WIN_WIDTH = 576
 WIN_HEIGHT = 324
+
+# S
+# SCORE_POS
+SCORE_POS = {'Title': (WIN_WIDTH / 2, 50),
+             'EnterName': (WIN_WIDTH / 2, 80),
+             'Label': (WIN_WIDTH / 2, 90),
+             'Name': (WIN_WIDTH / 2, 110),
+             0: (WIN_WIDTH / 2, 110),
+             1: (WIN_WIDTH / 2, 130),
+             2: (WIN_WIDTH / 2, 150),
+             3: (WIN_WIDTH / 2, 170),
+             4: (WIN_WIDTH / 2, 190),
+             5: (WIN_WIDTH / 2, 210),
+             6: (WIN_WIDTH / 2, 230),
+             7: (WIN_WIDTH / 2, 250),
+             8: (WIN_WIDTH / 2, 270),
+             9: (WIN_WIDTH / 2, 290),
+             }
