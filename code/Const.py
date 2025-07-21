@@ -30,6 +30,7 @@ ENTITY_HEALTH = {
     'Level1Bg4': 999,
     'Level1Bg5': 999,
     'Player': 300,
+    'PlayerShot': 3,
     'Enemy1': 50,
     'Enemy2': 60,
 }
@@ -41,6 +42,12 @@ MENU_OPTION = ('NEW GAME',
                'NO HIT - CHALLENGE',
                'SCORE',
                'QUIT')
+# P
+PLAYER_KEY_UP = {'Player': pygame.K_UP}
+PLAYER_KEY_DOWN = {'Player': pygame.K_DOWN}
+PLAYER_KEY_LEFT = {'Player': pygame.K_LEFT}
+PLAYER_KEY_RIGHT = {'Player': pygame.K_RIGHT}
+PLAYER_KEY_SHOOT = {'Player': pygame.K_SPACE}
 
 # S
 SPAWN_TIME = 3000
