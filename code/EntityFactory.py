@@ -15,9 +15,15 @@ class EntityFactory:
         match entity_name:
             case 'Level1Bg':
                 list_bg = []
-                for i in range(6):
+                for i in range(6):  # background numbers level 1
                     list_bg.append(Background(f'Level1Bg{i}', position))  # Parallax command effect
                     list_bg.append(Background(f'Level1Bg{i}', (WIN_WIDTH, 0)))
+                return list_bg
+            case 'Level2Bg':
+                list_bg = []
+                for i in range(4):  # background numbers level 2
+                    list_bg.append(Background(f'Level2Bg{i}', position))  # Parallax command effect
+                    list_bg.append(Background(f'Level2Bg{i}', (WIN_WIDTH, 0)))
                 return list_bg
             case 'Player':
                 return Player('Player', (10, WIN_HEIGHT / 2))  # Spawn Player and Enemies
